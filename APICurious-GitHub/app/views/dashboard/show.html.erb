@@ -5,6 +5,7 @@
         <h1>Welcome <%= current_user.name %>!!</h1>
         <p>Browse around to check out your GitHub stuff</p>
         <p>Lovingly artisanally yanked from the depths of the GitHub API</p>
+        <a href="/logout" class="btn btn-danger btn-lg" role="button">Logout</a>
       </div>
       <div class='col-md-6'>
         <img src=<%= current_user.image %>>

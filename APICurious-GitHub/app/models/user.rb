@@ -9,4 +9,16 @@ class User < ApplicationRecord
       user
     end
 
+    def followers
+      Follow.followers(self.name)
+    end
+
+    def following
+      Follow.following(self.name)
+    end
+
+    def starred_count
+      Repository.count_of_starred(self.name)
+    end
+
 end

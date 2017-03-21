@@ -16,17 +16,28 @@
 <div class='row text-center'>
   <div class='col-md-4'>
     <p>
-      Placeholder for info
+      Starred Repository Count: <%= current_user.starred_count %>
     </p>
   </div>
   <div class='col-md-4'>
-    <p>
-      Placeholder for info
-    </p>
+    <h4> Followers</h4>
+    <ul>
+      <% current_user.followers.each do |follower|  %>
+        <li>
+          <a href="<%= follower.html_url %>"><%= follower.login %></a>
+        </li>
+      <% end %>
+    </ul>
+
   </div>
   <div class='col-md-4'>
-    <p>
-      Placeholder for info
-    </p>
+    <h4>Following:</h4>
+    <ul>
+      <% current_user.following.each do |followed| %>
+      <li>
+        <a href="<%= followed.html_url %>"><%= followed.login %></a>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>

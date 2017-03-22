@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/logout', to: "sessions#destroy"
   get  '/dashboard', to: 'dashboard#show'
   get '/commits', to: 'commits#show'
+  get '/repositories', to: 'repositories#show'
 end

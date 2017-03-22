@@ -25,4 +25,8 @@ class User < ApplicationRecord
       Commit.recent(self.name)
     end
 
+    def repositories_by_name
+      Repository.repositories_by_name(self.name)
+    end
+
 end

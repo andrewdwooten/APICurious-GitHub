@@ -15,8 +15,6 @@ describe Follow do
       following = Follow.following('andrewdwooten')
       first = following.first
 
-      byebug
-
       expect(following.count).to eq(1)
       expect(first.login).to eq('blackknight75')
     end

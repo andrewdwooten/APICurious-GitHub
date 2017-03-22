@@ -47,4 +47,15 @@ end
     end
   end
 
+  describe '#commits_to_repo' do
+    it 'finds users the users commits to a repository' do
+      commits = @service.commits_to_repo('andrewdwooten', 'advanced_enumerables')
+      commit = commits.first
+
+      expect(commits.count).to eq(2)
+      expect(commit[:commit][:author][:name]).to eq('Andy Wooten')
+      expect(commit[:commit][:message]).to eq('Committing all files')
+    end
+  end
+
 end

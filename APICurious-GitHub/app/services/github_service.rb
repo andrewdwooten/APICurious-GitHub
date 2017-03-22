@@ -1,9 +1,8 @@
 class GithubService
-  attr_reader :connection, :username, :auth
+  attr_reader :connection, :auth
 
   def initialize
     @connection = Faraday.new('https://api.github.com')
-    @username   = username
     @auth       = "?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}"
   end
 
@@ -21,6 +20,14 @@ class GithubService
 
   def following(username)
     parse(connection.get("/users/#{username}/following#{auth}"))
+  end
+
+  def commits_to_repo(username, repo_name)
+    parse(connection.get("/repos/#{username}/#{repo_name}/commits#{auth}&author=#{username}"))
+  end
+
+  def commits(username, repo_name)
+    parse(connection.get("/repos/#{username}/#{repo_name}/commits#{auth}&author=#{username}&since=1.week.ago"))
   end
 
 

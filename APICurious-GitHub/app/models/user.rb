@@ -37,4 +37,8 @@ class User < ApplicationRecord
       FollowActivity.following_activity(self.name)
     end
 
+    def create_repo(repo_name)
+      Repository.create(self.token, repo_name)
+    end
+
 end

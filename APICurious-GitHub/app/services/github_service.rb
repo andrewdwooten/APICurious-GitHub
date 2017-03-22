@@ -34,6 +34,13 @@ class GithubService
     parse(connection.get("/users/#{username}/orgs#{auth}"))
   end
 
+  def create_repo(token, repo_name)
+    connection.post do |req|
+      req.url "/user/repos#{auth}&access_token=#{token}"
+      req.body = { "name": repo_name }.to_json
+    end
+  end
+
 
   private
 

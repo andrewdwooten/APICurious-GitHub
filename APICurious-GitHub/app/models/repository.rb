@@ -17,4 +17,8 @@ class Repository < OpenStruct
     end
   end
 
+  def self.create(token, repo_name)
+    service.create_repo(token, repo_name)
+  end
+
 end

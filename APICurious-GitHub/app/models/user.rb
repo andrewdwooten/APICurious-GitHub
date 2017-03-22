@@ -33,4 +33,8 @@ class User < ApplicationRecord
       Organization.organizations(self.name)
     end
 
+    def follow_activity
+      FollowActivity.following_activity(self.name)
+    end
+
 end

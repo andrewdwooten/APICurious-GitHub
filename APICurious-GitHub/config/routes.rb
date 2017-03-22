@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/commits', to: 'commits#show'
   get '/repositories', to: 'repositories#show'
   get '/organizations', to: 'organizations#show'
+  get '/followingactivity', to: 'follow_activity#show'
 end

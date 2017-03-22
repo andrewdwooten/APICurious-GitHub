@@ -21,4 +21,8 @@ class User < ApplicationRecord
       Repository.count_of_starred(self.name)
     end
 
+    def recent_commits
+      Commit.recent(self.name)
+    end
+
 end

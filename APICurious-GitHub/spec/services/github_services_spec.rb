@@ -67,4 +67,17 @@ end
       end
     end
   end
+
+  describe '#organizations' do
+    it 'finds users the users organizations' do
+      VCR.use_cassette('services/organizations') do
+        organizations = @service.organizations('andrewdwooten')
+        test_org = organizations.first
+
+        expect(organizations.class).to eq(Array)
+        expect(organizations.empty?).to eq(false)
+        expect(test_org[:login]).to eq('APICuriousTest')
+      end
+    end
+  end
 end

@@ -30,6 +30,10 @@ class GithubService
     parse(connection.get("/repos/#{username}/#{repo_name}/commits#{auth}&author=#{username}&since=1.week.ago"))
   end
 
+  def organizations(username)
+    parse(connection.get("/users/#{username}/orgs#{auth}"))
+  end
+
 
   private
 

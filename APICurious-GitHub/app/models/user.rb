@@ -29,4 +29,8 @@ class User < ApplicationRecord
       Repository.repositories_by_name(self.name)
     end
 
+    def organizations
+      Organization.organizations(self.name)
+    end
+
 end

@@ -15,7 +15,7 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.filter_sensitive_data('<GITHUB_KEY>') { ENV['GITHUB_KEY'] }
   config.filter_sensitive_data('<GITHUB_SECRET>') { ENV['GITHUB_SECRET'] }
-
+  config.allow_http_connections_when_no_cassette = true
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 

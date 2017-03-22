@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get  '/dashboard', to: 'dashboard#show'
   get '/commits', to: 'commits#show'
   get '/repositories', to: 'repositories#show'
+  get '/organizations', to: 'organizations#show'
 end

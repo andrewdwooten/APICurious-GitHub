@@ -8,9 +8,9 @@ describe Commit do
         commit  = commits.first
 
         expect(commits.count).to eq(10)
-        expect(commit.has_key?(:date)).to eq(true)
-        expect(commit.has_key?(:repo_url)).to eq(true)
-        expect(commit.has_key?(:message)).to eq(true)
+        expect(commit).to respond_to(:date)
+        expect(commit).to respond_to(:repo_url)
+        expect(commit).to respond_to(:message)
       end
     end
   end

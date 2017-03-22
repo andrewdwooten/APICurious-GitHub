@@ -19,10 +19,10 @@ describe Repository do
 
         expect(repository_names.count).to eq(28)
         expect(repository_names.class).to eq(Array)
-        expect(first_repo.class).to eq(Hash)
-        expect(first_repo.has_key?(:name)).to eq(true)
-        expect(first_repo.has_key?(:url_ext)).to eq(true)
-        expect(first_repo.has_key?(:updated_at)).to eq(true)
+        expect(first_repo.class).to eq(Repository)
+        expect(first_repo).to respond_to(:name)
+        expect(first_repo).to respond_to(:url_ext)
+        expect(first_repo).to respond_to(:updated_at)
       end
     end
   end

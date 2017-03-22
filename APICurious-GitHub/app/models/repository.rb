@@ -11,9 +11,9 @@ class Repository < OpenStruct
 
   def self.repositories_by_name(username)
     service.repositories(username).map do |repo|
-      {name:       repo[:name],
-       url_ext:    repo[:full_name],
-       updated_at: repo[:updated_at].to_time.in_time_zone }
+      Repository.new({name:       repo[:name],
+                      url_ext:    repo[:full_name],
+                      updated_at: repo[:updated_at].to_time.in_time_zone })
     end
   end
 

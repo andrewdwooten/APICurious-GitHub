@@ -18,14 +18,14 @@
     <h4> Starred Repository Count</h4>
     <ul>
       <li>
-        <%= current_user.starred_count %>
+        <%= @star_count %>
       </li>
     </ul>
   </div>
   <div class='col-md-4'>
     <h4> Followers</h4>
     <ul>
-      <% current_user.followers.each do |follower|  %>
+      <% @followers.each do |follower|  %>
         <li>
           <a href="<%= follower.html_url %>"><%= follower.login %></a>
         </li>
@@ -36,7 +36,7 @@
   <div class='col-md-4'>
     <h4>Following:</h4>
     <ul>
-      <% current_user.following.each do |followed| %>
+      <% @following.each do |followed| %>
       <li>
         <a href="<%= followed.html_url %>"><%= followed.login %></a>
       </li>

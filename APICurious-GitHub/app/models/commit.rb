@@ -16,9 +16,9 @@ class Commit < OpenStruct
     repo_commits.delete_if {|repo| repo.empty? || repo.class == Hash}
     repo_commits.each do |repo|
       repo.each do |commit|
-        commits << {date:     commit[:commit][:author][:date].to_time.in_time_zone,
+        commits << Commit.new({date:     commit[:commit][:author][:date].to_time.in_time_zone,
                   repo_url: commit[:html_url],
-                  message:  commit[:commit][:message]}
+                  message:  commit[:commit][:message]})
       end
     end
     commits[0..9]

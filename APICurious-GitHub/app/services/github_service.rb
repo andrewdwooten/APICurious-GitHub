@@ -41,6 +41,9 @@ class GithubService
     end
   end
 
+  def pull_requests(username, repo_name)
+    parse(connection.get("/repos/#{username}/#{repo_name}/pulls#{auth}&state=open"))
+  end
 
   private
 

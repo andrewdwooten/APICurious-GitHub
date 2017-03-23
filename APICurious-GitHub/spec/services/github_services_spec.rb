@@ -80,4 +80,17 @@ end
       end
     end
   end
+
+  describe '#pull_requests' do
+    it 'finds users pull requests on a repo' do
+      VCR.use_cassette('/services/pull_requests') do
+        pull_requests = @service.pull_requests('s-espinosa', 'api_curious')
+        pr = pull_requests.first
+
+
+        expect(pull_requests.class).to eq(Array)
+        expect(pull_requests.empty?).to eq(true)
+      end
+    end
+  end
 end

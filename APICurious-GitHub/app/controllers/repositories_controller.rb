@@ -1,4 +1,5 @@
 class RepositoriesController < ApplicationController
+  before_action :authorize!
 
   def index
     @repositories = current_user.repositories_by_name

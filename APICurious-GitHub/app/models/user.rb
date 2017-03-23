@@ -41,4 +41,8 @@ class User < ApplicationRecord
       Repository.create(self.token, repo_name)
     end
 
+    def open_pull_requests
+      PullRequest.pull_requests(self.name)
+    end
+
 end
